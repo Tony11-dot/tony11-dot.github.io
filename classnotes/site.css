@@ -96,8 +96,7 @@ img { max-width: 100%; }
   display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap;
 }
 .logo-link { display: block; line-height: 0; border-radius: 8px; }
-.logo { display: block; height: 44px; aspect-ratio: 490 / 172; background: var(--brand);
-  -webkit-mask: url(img/lockup.png) center / contain no-repeat; mask: url(img/lockup.png) center / contain no-repeat; }
+.logo { display: block; height: 44px; width: auto; aspect-ratio: 490 / 172; }
 .bar nav { display: flex; gap: 2px; margin-left: auto; }
 .bar nav a {
   color: var(--body); text-decoration: none; font-size: 15px; font-weight: 600;
