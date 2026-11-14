@@ -96,7 +96,7 @@ img { max-width: 100%; }
   display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap;
 }
 .logo-link { display: block; line-height: 0; border-radius: 8px; }
-.logo { display: block; height: 44px; width: auto; aspect-ratio: 490 / 172; }
+.logo { display: block; height: 40px; width: auto; aspect-ratio: 490 / 172; }
 .bar nav { display: flex; gap: 2px; margin-left: auto; }
 .bar nav a {
   color: var(--body); text-decoration: none; font-size: 15px; font-weight: 600;
@@ -203,16 +203,19 @@ footer.foot { border-top: 1px solid var(--line); background: var(--surface); }
 .foot-in { max-width: 1180px; margin: 0 auto; padding: 44px 24px 36px; display: grid; gap: 36px 48px;
   grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); font-size: 15px; color: var(--muted); }
 .foot-brand p { margin: 14px 0 16px; max-width: 32ch; line-height: 1.55; }
-.foot-brand .logo { height: 32px; }
+.foot-brand .logo { height: 36px; }
 .foot-brand .dl { display: inline-block; line-height: 0; border-radius: 9px; }
 .foot-brand .dl img { height: 40px; width: auto; }
 .foot h2 { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
 .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.foot li { list-style: none; padding: 0; margin: 0; }
+.foot li::before { content: none; }
 .foot li a { display: inline-block; padding: 5px 0; overflow-wrap: anywhere; }
 .foot nav { min-width: 0; }
 .foot a { color: var(--muted); text-decoration: none; }
 .foot a:hover { color: var(--ink); text-decoration: underline; }
 .foot-base { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: 14px; }
+.foot-base p { margin: 0; max-width: none; }
 .foot-base a { color: var(--link); text-decoration: underline; }
 @media (max-width: 860px) { .foot-in { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-brand { grid-column: 1 / -1; } }
 @media (max-width: 420px) { .foot-in { padding: 32px 16px 28px; } }

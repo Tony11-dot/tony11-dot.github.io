@@ -35,7 +35,7 @@
   var base = { rx: 7, ry: -17 };
 
   /* ── pencil + ink ── */
-  var OX = 15, OY = 15;                      // screen inset inside the tablet
+  var OX = 20.5, OY = 20.5;                      // screen inset inside the tablet
   var lens = strokes.map(function (p) { return p.getTotalLength(); });
   var SPEED = 150, LIFT = 0.16, HOLD = 3.2, FADE = 0.7;   // units/s, seconds
   var plan = [], t = 0;
@@ -52,7 +52,7 @@
     pshadow.style.transform = 'translate3d(' + (OX + x + 9 + z * 0.35) + 'px,' + (OY + y + 8 + z * 0.5) + 'px,1.8px)';
     pshadow.style.opacity = z > 8 ? 0.45 : 0.9;
   }
-  var rest = { x: 392, y: 400 };
+  var rest = { x: 400, y: 330 };
   function showStill() {
     plan.forEach(function (s) { s.el.style.strokeDashoffset = 0; s.el.style.opacity = 1; });
     var last = plan[plan.length - 1];
@@ -90,7 +90,7 @@
     } else {                                // resting off the page while it holds
       var l = plan[plan.length - 1], q = l.el.getPointAtLength(l.len);
       var m2 = Math.min(1, (tt - writeEnd) / 0.8); m2 = m2 * m2 * (3 - 2 * m2);
-      tipX = q.x + 46 * m2; tipY = q.y + 60 * m2; z = 3 + 24 * m2;
+      tipX = q.x + 28 * m2; tipY = q.y + 56 * m2; z = 3 + 24 * m2;
     }
     pose(tipX, tipY, z);
   }

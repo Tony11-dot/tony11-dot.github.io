@@ -42,28 +42,28 @@
 .fine strong { color: var(--ink); font-weight: 650; }
 
 /* ── 3D iPad ── */
-.stage { --s: 1; width: calc(640px * var(--s)); height: calc(720px * var(--s)); justify-self: end; max-width: 100%; position: relative; }
-.scene { width: 640px; height: 720px; position: absolute; left: 0; top: 0; transform: scale(var(--s)); transform-origin: 0 0; perspective: 1900px; perspective-origin: 50% 42%; }
+.stage { --s: 1; width: calc(640px * var(--s)); height: calc(740px * var(--s)); justify-self: end; max-width: 100%; position: relative; }
+.scene { width: 640px; height: 740px; position: absolute; left: 0; top: 0; transform: scale(var(--s)); transform-origin: 0 0; perspective: 1900px; perspective-origin: 50% 42%; }
 .floor { position: absolute; left: 70px; right: 70px; bottom: 6px; height: 54px; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(30, 20, 8, .34), transparent); filter: blur(10px); transform: translateX(calc(var(--ry-n, 0) * -26px)); animation: floorbob 9s ease-in-out infinite; }
 @keyframes floorbob { 50% { opacity: .7; scale: .93 1; } }
-.float { position: absolute; left: 40px; top: 24px; width: 560px; height: 642px; transform-style: preserve-3d; animation: bob 9s ease-in-out infinite; }
+.float { position: absolute; left: 70px; top: 26px; width: 500px; height: 653px; transform-style: preserve-3d; animation: bob 9s ease-in-out infinite; }
 @keyframes bob { 0%, 100% { transform: translate3d(0, 0, 0) rotateZ(-.4deg); } 50% { transform: translate3d(0, -16px, 0) rotateZ(.5deg); } }
 .tablet { position: absolute; inset: 0; transform-style: preserve-3d; transform: rotateX(var(--rx, 7deg)) rotateY(var(--ry, -17deg)) rotateZ(var(--rz, 0deg)); will-change: transform; }
-.slab { position: absolute; inset: 0; border-radius: 46px; transform: translateZ(calc(var(--i) * -1px));
+.slab { position: absolute; inset: 0; border-radius: 29px; transform: translateZ(calc(var(--i) * -1px));
   background: linear-gradient(100deg, #a9a69f, #dcd9d2 38%, #f0eee9 52%, #c4c1ba 72%, #96938c); }
 .slab:last-of-type { background: #7d7a74; }
-.face { position: absolute; inset: 0; border-radius: 46px; background: #101012; transform: translateZ(.5px);
-  box-shadow: inset 0 0 0 2px #2b2b30, inset 0 0 0 3px #0a0a0b; }
-.screen { position: absolute; inset: 15px; border-radius: 32px; overflow: hidden; background: #f4f6fb; transform: translateZ(1px); }
+.face { position: absolute; inset: 0; border-radius: 29px; background: #0b0b0d; transform: translateZ(.5px);
+  box-shadow: inset 0 0 0 2.2px #b9b6af, inset 0 0 0 3.4px #0b0b0d, inset 0 0 0 4.6px #26262b; }
+.screen { position: absolute; inset: 20.5px; border-radius: 9.5px; overflow: hidden; background: #f4f6fb; transform: translateZ(1px); }
 .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.cam { position: absolute; left: 50%; top: 6px; width: 5px; height: 5px; margin-left: -2.5px; border-radius: 50%; background: #1c2430; box-shadow: inset 0 0 0 1px #2d3644; transform: translateZ(1.2px); }
-.ink { position: absolute; inset: 15px; width: 530px; height: 612px; transform: translateZ(2px); pointer-events: none; overflow: visible; }
+.cam { position: absolute; right: 7.7px; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%; background: #1c2430; box-shadow: inset 0 0 0 1px #2d3644; transform: translateZ(1.2px); }
+.ink { position: absolute; left: 20.5px; top: 20.5px; width: 459px; height: 612px; transform: translateZ(2px); pointer-events: none; overflow: visible; }
 .ink path { fill: none; stroke: var(--ink-c, #2443d8); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
-.glare { position: absolute; inset: 15px; border-radius: 32px; transform: translateZ(2.6px); pointer-events: none;
+.glare { position: absolute; inset: 20.5px; border-radius: 9.5px; transform: translateZ(2.6px); pointer-events: none;
   background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .22) 46%, transparent 58%); background-size: 260% 100%; background-position: var(--gx, 60%) 0; mix-blend-mode: soft-light; }
 .pencil { position: absolute; left: 0; top: 0; width: 20px; height: 330px; transform-origin: 10px 330px; transform-style: preserve-3d;
-  transform: translate3d(489px, 50px, 27px) rotateZ(34deg) rotateX(-46deg); will-change: transform; pointer-events: none; }
+  transform: translate3d(460px, 20px, 27px) rotateZ(34deg) rotateX(-46deg); will-change: transform; pointer-events: none; }
 .pencil svg { display: block; width: 20px; height: 330px; overflow: visible; filter: drop-shadow(10px 18px 14px rgba(20, 12, 4, .28)); }
 .pshadow { position: absolute; left: 0; top: 0; width: 38px; height: 14px; margin: -7px 0 0 -2px; border-radius: 50%; background: rgba(15, 10, 4, .35); filter: blur(5px);
   transform: translate3d(0, 0, 1.8px); pointer-events: none; opacity: 0; transition: opacity .2s; }
@@ -239,3 +239,18 @@ section { scroll-margin-top: 78px; }
   .d-a, .d-c { opacity: 0; } .d-b, .d-ruler { opacity: 1; transform: none; }
   .rv { opacity: 1; transform: none; transition: none; }
 }
+
+/* hero edge pieces and Pencil Pro */
+.btn-pw { position: absolute; top: -3px; right: 90px; width: 36px; height: 3px; border-radius: 2px 2px 0 0; background: linear-gradient(90deg, #8d8a83, #d3d0c9, #8d8a83); transform: translateZ(-4px); }
+.btn-vl { position: absolute; right: -3px; top: 74px; width: 3px; height: 76px; border-radius: 0 2px 2px 0; background: linear-gradient(180deg, #8d8a83, #d3d0c9, #8d8a83); transform: translateZ(-4px); }
+
+/* pen strip, phones */
+.pen-strip { text-align: center; max-width: 820px; margin: clamp(56px, 8vw, 100px) auto 0; }
+.pen-strip h3 { font-size: clamp(26px, 3.2vw, 36px); font-weight: 800; }
+.pen-strip p { color: var(--body); margin: 12px auto 0; max-width: 36em; line-height: 1.6; }
+.pen-strip .pens { justify-content: center; }
+.phones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 4vw, 40px); max-width: 520px; margin: 0 auto; width: 100%; align-items: start; }
+.phones .ph2 { margin-top: 12%; }
+.hero .ipad, .hero .iphone { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pens i { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); } }
+:root[data-theme="dark"] .pens i { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); }

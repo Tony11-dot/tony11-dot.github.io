@@ -1,0 +1,74 @@
+/* Real-proportioned devices (drawn in CSS) and the pinned 3D iPad showcase. */
+
+/* ── iPad Pro 13-inch (M5), portrait: 215.5 x 281.6 mm, even 4.1% bezels, camera on the right edge ── */
+.ipad { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 1 / 1.306; }
+.ipad .rim { position: absolute; inset: 0; border-radius: 5.8cqw; background: linear-gradient(135deg, #e4e2dc, #a9a69f 45%, #d3d0c9 70%, #8d8a83); box-shadow: 0 5cqw 9cqw -3cqw rgba(30, 20, 8, .5), 0 1.6cqw 3cqw -1cqw rgba(30, 20, 8, .35); }
+.ipad .bez { position: absolute; inset: .45cqw; border-radius: 5.35cqw; background: #0b0b0d; box-shadow: inset 0 0 0 .3cqw #26262b; }
+.ipad .scr { position: absolute; inset: 4.1cqw; border-radius: 1.9cqw; overflow: hidden; background: #f4f6fb; }
+.ipad .scr img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ipad .cam { position: absolute; right: 1.55cqw; top: 50%; width: 1cqw; height: 1cqw; margin-top: -.5cqw; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #3b4658, #10141c 70%); box-shadow: 0 0 0 .25cqw #1b1b20; }
+.ipad .b { position: absolute; background: linear-gradient(90deg, #8d8a83, #d3d0c9, #8d8a83); }
+.ipad .b-power { top: -.55cqw; right: 18cqw; width: 7cqw; height: .7cqw; border-radius: .4cqw .4cqw 0 0; }
+.ipad .b-vol { right: -.55cqw; top: 14cqw; width: .7cqw; height: 15cqw; border-radius: 0 .4cqw .4cqw 0; background: linear-gradient(180deg, #8d8a83, #d3d0c9, #8d8a83); }
+
+/* ── iPhone 17 Pro Max: 78 x 163.4 mm, titanium frame, Dynamic Island ── */
+.iphone { position: relative; container-type: inline-size; width: 100%; aspect-ratio: 1 / 2.095; }
+.iphone .rim { position: absolute; inset: 0; border-radius: 15.8cqw; background: linear-gradient(135deg, #d9d5cd, #8b877f 40%, #c5c0b7 65%, #77736c); box-shadow: 0 6cqw 10cqw -3cqw rgba(30, 20, 8, .5), 0 1.6cqw 3cqw -1cqw rgba(30, 20, 8, .35); }
+.iphone .bez { position: absolute; inset: .7cqw; border-radius: 15.1cqw; background: #050506; box-shadow: inset 0 0 0 .3cqw #1c1c20; }
+.iphone .scr { position: absolute; inset: 2.3cqw; border-radius: 13.6cqw; overflow: hidden; background: #f4f6fb; }
+.iphone .scr img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.iphone .isl { position: absolute; left: 50%; top: 4.5cqw; width: 28cqw; height: 8.2cqw; margin-left: -14cqw; border-radius: 99cqw; background: #000; box-shadow: inset 0 0 0 .2cqw #151518; }
+.iphone .b { position: absolute; background: linear-gradient(90deg, #77736c, #cbc6bc, #77736c); }
+.iphone .b-act { left: -.6cqw; top: 25cqw; width: .8cqw; height: 5cqw; border-radius: .5cqw 0 0 .5cqw; }
+.iphone .b-up { left: -.6cqw; top: 36cqw; width: .8cqw; height: 10cqw; border-radius: .5cqw 0 0 .5cqw; }
+.iphone .b-dn { left: -.6cqw; top: 49cqw; width: .8cqw; height: 10cqw; border-radius: .5cqw 0 0 .5cqw; }
+.iphone .b-pow { right: -.6cqw; top: 40cqw; width: .8cqw; height: 16cqw; border-radius: 0 .5cqw .5cqw 0; }
+.iphone .b-cam { right: -.5cqw; top: 112cqw; width: .7cqw; height: 9cqw; border-radius: 0 .5cqw .5cqw 0; }
+
+/* ── Showcase ── */
+.sc-head { text-align: center; max-width: 760px; margin: 0 auto; }
+.sc-head p { margin-left: auto; margin-right: auto; }
+.sc-wrap { position: relative; margin-top: clamp(24px, 4vw, 48px); }
+.sc-stage { position: sticky; top: 0; height: 100dvh; padding-top: 56px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; z-index: 3; pointer-events: none; perspective: 1700px; perspective-origin: 50% 45%; }
+.sc-3d { --w: clamp(250px, min(34vw, 54dvh), 460px); --step: calc(var(--w) * .0021); position: relative; width: var(--w); height: calc(var(--w) * 1.306); transform-style: preserve-3d; will-change: transform; }
+.sc-face { position: absolute; inset: 0; container-type: inline-size; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 5.8cqw; background: #0b0b0d; box-shadow: inset 0 0 0 .45cqw #b6b3ac, inset 0 0 0 .8cqw #0b0b0d; }
+.sc-front { transform: translateZ(calc(var(--step) * 6.9)); }
+.sc-back { transform: rotateY(180deg) translateZ(calc(var(--step) * 6.9)); }
+.sc-scr { position: absolute; inset: 4.1cqw; border-radius: 1.9cqw; overflow: hidden; background: #f4f6fb; }
+.sc-scr img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sc-cam { position: absolute; right: 1.55cqw; top: 50%; width: 1cqw; height: 1cqw; margin-top: -.5cqw; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #3b4658, #10141c 70%); }
+.sc-body { position: absolute; inset: 0; border-radius: calc(var(--w) * .058); transform: translateZ(calc((var(--i) - 6.5) * var(--step))); background: linear-gradient(110deg, #e0ded8, #aaa7a0 55%, #8f8c85); }
+.sc-texts { position: relative; margin-top: -100dvh; z-index: 1; }
+.sc-copy { min-height: 100dvh; box-sizing: border-box; padding-top: 56px; display: flex; flex-direction: column; justify-content: center; opacity: .3; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+.sc-copy.is-active { opacity: 1; transform: none; }
+.sc-copy[data-side="right"] { align-items: flex-end; text-align: right; padding-right: clamp(24px, 9vw, 260px); }
+.sc-copy[data-side="left"] { align-items: flex-start; text-align: left; padding-left: clamp(24px, 9vw, 260px); }
+.sc-copy > * { max-width: 24ch; }
+.sc-copy h3 { font-size: clamp(30px, 3.6vw, 48px); line-height: 1.06; font-weight: 800; letter-spacing: -.03em; max-width: 14ch; }
+.sc-copy p { color: var(--body); margin: 14px 0 0; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
+.sc-copy p.eyebrow { font-size: 12px; color: var(--brand); margin: 0 0 14px; }
+.sc-mobile { display: none; }
+.sc-mobile .ipad { width: min(100%, 360px); margin: 0 auto; }
+.sc-card { text-align: center; }
+.sc-card h3 { font-size: 22px; font-weight: 800; margin: 22px 0 8px; }
+.sc-card p { margin: 0 auto; max-width: 30ch; color: var(--body); line-height: 1.55; font-size: 15.5px; }
+.sc-card p.eyebrow { margin: 22px 0 0; color: var(--brand); font-size: 12px; }
+.sc-card p.eyebrow + h3 { margin-top: 8px; }
+.only-m { display: none; }
+.only-r { display: none; }
+
+@media (max-width: 768px) {
+  .sc-wrap { display: none; }
+  .sc-mobile { display: block; }
+  .sc-mobile-scroller { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 24px 28px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .sc-mobile-scroller::-webkit-scrollbar { display: none; }
+  .sc-card { flex: 0 0 min(78vw, 340px); scroll-snap-align: center; }
+  .only-d { display: none; } .only-m { display: inline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc-wrap { display: none; }
+  .sc-mobile { display: block; }
+  .sc-mobile-scroller { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px 32px; max-width: 1100px; margin: 0 auto; padding: 8px 24px; overflow: visible; }
+  .sc-card { flex: none; }
+  .only-d, .only-m { display: none; } .only-r { display: inline; }
+}
