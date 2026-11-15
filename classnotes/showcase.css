@@ -25,52 +25,100 @@
 .iphone .b-pow { right: -.6cqw; top: 40cqw; width: .8cqw; height: 16cqw; border-radius: 0 .5cqw .5cqw 0; }
 .iphone .b-cam { right: -.5cqw; top: 112cqw; width: .7cqw; height: 9cqw; border-radius: 0 .5cqw .5cqw 0; }
 
-/* ── Showcase ── */
+/* ── Showcase: ClassMate's pinned 3D device (marketing/public/animations.css), as an iPad.
+   A sticky REAL 3D iPad (thickness from stacked slices) that turns a half-turn per step and
+   moves side to side between the texts. Driven by showcase.js (GSAP ScrollTrigger, as on
+   classmateapp.org). Everything in the 3D box is sized in px from --w: no container queries
+   inside the 3D context. ── */
 .sc-head { text-align: center; max-width: 760px; margin: 0 auto; }
 .sc-head p { margin-left: auto; margin-right: auto; }
 .sc-wrap { position: relative; margin-top: clamp(24px, 4vw, 48px); }
-.sc-stage { position: sticky; top: 0; height: 100dvh; padding-top: 56px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; z-index: 3; pointer-events: none; perspective: 1700px; perspective-origin: 50% 45%; }
-.sc-3d { --w: clamp(250px, min(34vw, 54dvh), 460px); --step: calc(var(--w) * .0021); position: relative; width: var(--w); height: calc(var(--w) * 1.306); transform-style: preserve-3d; will-change: transform; }
-.sc-face { position: absolute; inset: 0; container-type: inline-size; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 5.8cqw; background: #0b0b0d; box-shadow: inset 0 0 0 .45cqw #b6b3ac, inset 0 0 0 .8cqw #0b0b0d; }
-.sc-front { transform: translateZ(calc(var(--step) * 6.9)); }
-.sc-back { transform: rotateY(180deg) translateZ(calc(var(--step) * 6.9)); }
-.sc-scr { position: absolute; inset: 4.1cqw; border-radius: 1.9cqw; overflow: hidden; background: #f4f6fb; }
-.sc-scr img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.sc-stage {
+  position: -webkit-sticky; position: sticky; top: 0; height: 100vh; height: 100dvh;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 3; pointer-events: none;
+  -webkit-perspective: 1700px; perspective: 1700px;
+  -webkit-perspective-origin: 50% 45%; perspective-origin: 50% 45%;
+}
+.sc-3d {
+  --w: clamp(250px, 34vw, 460px);
+  --h: calc(var(--w) * 1.306);
+  --r: calc(var(--w) * .058);
+  position: relative; width: var(--w); height: var(--h); margin-top: 28px;
+  -webkit-transform-style: preserve-3d; transform-style: preserve-3d; will-change: transform;
+}
+.sc-face {
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0; box-sizing: border-box;
+  border-radius: var(--r); overflow: hidden;
+  background: #0b0b0d; border: calc(var(--w) * .041) solid #0b0b0d;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  box-shadow: 0 0 0 calc(var(--w) * .0055) #b9b6af;
+}
+.sc-front { -webkit-transform: translateZ(5.5px); transform: translateZ(5.5px); }
+.sc-back { -webkit-transform: rotateY(180deg) translateZ(5.5px); transform: rotateY(180deg) translateZ(5.5px); }
+.sc-scr { position: absolute; top: 0; right: 0; bottom: 0; left: 0; border-radius: calc(var(--w) * .019); overflow: hidden; background: #f4f6fb; }
+.sc-scr img { position: absolute; top: 0; left: 0; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
 .sc-scr img.on { opacity: 1; }
-.sc-cam { position: absolute; right: 1.55cqw; top: 50%; width: 1cqw; height: 1cqw; margin-top: -.5cqw; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #3b4658, #10141c 70%); }
-.sc-body { position: absolute; inset: 0; border-radius: calc(var(--w) * .058); transform: translateZ(calc((var(--i) - 6.5) * var(--step))); background: linear-gradient(110deg, #e0ded8, #aaa7a0 55%, #8f8c85); }
-.sc-texts { position: relative; margin-top: -100dvh; z-index: 1; }
-.sc-copy { min-height: 100dvh; box-sizing: border-box; padding-top: 56px; display: flex; flex-direction: column; justify-content: center; opacity: .28; transform: translateY(14px); }
+/* Body = rounded slices stacked through the depth: a SOLID rounded thickness, no edge-on flash. */
+.sc-body {
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0; border-radius: var(--r);
+  -webkit-transform: translateZ(calc((var(--i) - 7.5) * .75px)); transform: translateZ(calc((var(--i) - 7.5) * .75px));
+  background: linear-gradient(110deg, #e0ded8, #aaa7a0 55%, #8f8c85);
+}
+.sc-texts { position: relative; margin-top: -100vh; margin-top: -100dvh; z-index: 1; }
+.sc-copy {
+  min-height: 100vh; min-height: 100dvh; box-sizing: border-box; padding-top: 56px;
+  display: flex; flex-direction: column; justify-content: center;
+  opacity: .35; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease;
+}
+.sc-copy.is-active { opacity: 1; transform: none; }
 .sc-copy[data-side="right"] { align-items: flex-end; text-align: right; padding-right: clamp(24px, 9vw, 260px); }
 .sc-copy[data-side="left"] { align-items: flex-start; text-align: left; padding-left: clamp(24px, 9vw, 260px); }
 .sc-copy > * { max-width: 24ch; }
 .sc-copy h3 { font-size: clamp(30px, 3.6vw, 48px); line-height: 1.06; font-weight: 800; letter-spacing: -.03em; max-width: 14ch; }
 .sc-copy p { color: var(--body); margin: 14px 0 0; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
 .sc-copy p.eyebrow { font-size: 12px; color: var(--brand); margin: 0 0 14px; }
+
+/* The still version: every screen in a row of framed iPads. Shown only when the scroll
+   animation can't or shouldn't run (reduced motion, or the script didn't load: .no-anim). */
 .sc-mobile { display: none; }
 .sc-mobile .ipad { width: min(100%, 360px); margin: 0 auto; }
+.sc-mobile-scroller { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px 32px; max-width: 1100px; margin: 0 auto; padding: 8px 24px; }
 .sc-card { text-align: center; }
 .sc-card h3 { font-size: 22px; font-weight: 800; margin: 22px 0 8px; }
 .sc-card p { margin: 0 auto; max-width: 30ch; color: var(--body); line-height: 1.55; font-size: 15.5px; }
 .sc-card p.eyebrow { margin: 22px 0 0; color: var(--brand); font-size: 12px; }
 .sc-card p.eyebrow + h3 { margin-top: 8px; }
-.only-m { display: none; }
 .only-r { display: none; }
+.sc-wrap.no-anim { display: none; }
+.sc-wrap.no-anim + .sc-mobile { display: block; }
+.sc-off .only-d { display: none; } .sc-off .only-r { display: inline; }
 
-@media (max-width: 1100px) { .sc-3d { --w: clamp(250px, min(46vw, 56dvh), 460px); } }
+@media (max-width: 1100px) { .sc-3d { --w: clamp(250px, 44vw, 460px); } }
+/* Short windows: the iPad never taller than the room under the header. */
+@media (max-height: 760px) and (min-width: 769px) { .sc-3d { --w: clamp(220px, 50vh, 400px); } }
+/* Phones: the same 3D iPad, in the upper part of the screen, its text under it. */
 @media (max-width: 768px) {
-  .sc-wrap { display: none; }
-  .sc-mobile { display: block; }
-  .sc-mobile-scroller { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 24px 28px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-  .sc-mobile-scroller::-webkit-scrollbar { display: none; }
-  .sc-card { flex: 0 0 min(78vw, 340px); scroll-snap-align: center; }
-  .only-d { display: none; } .only-m { display: inline; }
+  .sc-stage { align-items: flex-start; padding-top: 116px; box-sizing: border-box; }
+  .sc-3d { --w: min(68vw, 39vh); margin-top: 0; }
+  .sc-copy, .sc-copy[data-side="right"], .sc-copy[data-side="left"] {
+    justify-content: flex-end; align-items: center; text-align: center;
+    padding: 0 24px max(7vh, 40px);
+  }
+  .sc-copy > * { max-width: 30ch; }
+  .sc-copy h3 { font-size: clamp(24px, 6.6vw, 30px); max-width: 16ch; }
+  .sc-copy p { font-size: 15.5px; margin-top: 10px; }
+  .sc-copy p.eyebrow { margin-bottom: 10px; }
+}
+/* Short phones: a smaller iPad, so it never reaches its text. */
+@media (max-width: 768px) and (max-height: 720px) {
+  .sc-stage { padding-top: 108px; }
+  .sc-3d { --w: min(60vw, 31vh); }
+  .sc-copy p { font-size: 14.5px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .sc-wrap { display: none; }
   .sc-mobile { display: block; }
-  .sc-mobile-scroller { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px 32px; max-width: 1100px; margin: 0 auto; padding: 8px 24px; overflow: visible; }
-  .sc-card { flex: none; }
-  .only-d, .only-m { display: none; } .only-r { display: inline; }
+  .only-d { display: none; } .only-r { display: inline; }
 }
-.no-js .sc-copy, .sc-copy[data-i="0"] { opacity: 1; transform: none; }
+.no-js .sc-copy { opacity: 1; transform: none; }
