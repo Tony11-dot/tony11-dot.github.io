@@ -105,11 +105,11 @@ img { max-width: 100%; }
 .bar nav a:hover { color: var(--ink); background: var(--tint); }
 .bar nav a[aria-current="page"] { color: var(--ink); background: var(--tint); }
 .bar .dl { display: block; line-height: 0; border-radius: 9px; }
-.bar .dl img { height: 40px; width: auto; display: block; }
+.bar .dl svg { height: 40px; width: auto; aspect-ratio: 119.66 / 40; display: block; }
 @media (max-width: 720px) {
   .bar-in { padding: 8px 16px 6px; }
   .logo { height: 34px; }
-  .bar .dl img { height: 36px; }
+  .bar .dl svg { height: 36px; }
   .bar nav { order: 3; flex: 1 0 100%; margin: 0; justify-content: space-between; }
   .bar nav a { flex: 1; text-align: center; padding: 8px 4px; font-size: 14px; }
 }
@@ -205,7 +205,7 @@ footer.foot { border-top: 1px solid var(--line); background: var(--surface); }
 .foot-brand p { margin: 14px 0 16px; max-width: 32ch; line-height: 1.55; }
 .foot-brand .logo { height: 36px; }
 .foot-brand .dl { display: inline-block; line-height: 0; border-radius: 9px; }
-.foot-brand .dl img { height: 40px; width: auto; }
+.foot-brand .dl svg { height: 40px; width: auto; aspect-ratio: 119.66 / 40; display: block; }
 .foot h2 { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
 .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
 .foot li { list-style: none; padding: 0; margin: 0; }

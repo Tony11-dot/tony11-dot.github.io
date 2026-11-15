@@ -34,7 +34,7 @@
 .lede { font-size: clamp(17px, 2vw, 20px); line-height: 1.6; color: var(--body); max-width: 33em; margin: 22px 0 0; }
 .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 30px; }
 .cta .dl { display: block; line-height: 0; border-radius: 10px; }
-.cta .dl img { height: 54px; width: auto; }
+.cta .dl svg { height: 54px; width: auto; aspect-ratio: 119.66 / 40; display: block; }
 .btn-ghost { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px 0 14px; border-radius: 999px; border: 1.5px solid var(--tint-line); background: var(--surface); color: var(--ink); font-weight: 650; text-decoration: none; font-size: 16px; }
 .btn-ghost:hover { border-color: var(--brand); }
 .btn-ghost svg { width: 26px; height: 26px; flex: none; }
@@ -227,7 +227,7 @@ section { scroll-margin-top: 78px; }
   .container { padding: 0 16px; }
   .tools, .plans { grid-template-columns: minmax(0, 1fr); }
   .promise { grid-template-columns: minmax(0, 1fr); }
-  .cta .dl img { height: 50px; }
+  .cta .dl svg { height: 50px; }
   .pair { grid-template-columns: minmax(0, 1fr) minmax(0, 34%); }
 }
 
