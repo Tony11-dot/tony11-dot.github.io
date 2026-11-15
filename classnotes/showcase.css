@@ -44,6 +44,7 @@
   --w: clamp(250px, 34vw, 460px);
   --h: calc(var(--w) * 1.306);
   --r: calc(var(--w) * .058);
+  --t: calc(var(--w) * .028);   /* half the iPad's thickness */
   position: relative; width: var(--w); height: var(--h); margin-top: 28px;
   -webkit-transform-style: preserve-3d; transform-style: preserve-3d; will-change: transform;
 }
@@ -54,15 +55,15 @@
   -webkit-backface-visibility: hidden; backface-visibility: hidden;
   box-shadow: 0 0 0 calc(var(--w) * .0055) #b9b6af;
 }
-.sc-front { -webkit-transform: translateZ(5.5px); transform: translateZ(5.5px); }
-.sc-back { -webkit-transform: rotateY(180deg) translateZ(5.5px); transform: rotateY(180deg) translateZ(5.5px); }
+.sc-front { -webkit-transform: translateZ(var(--t)); transform: translateZ(var(--t)); }
+.sc-back { -webkit-transform: rotateY(180deg) translateZ(var(--t)); transform: rotateY(180deg) translateZ(var(--t)); }
 .sc-scr { position: absolute; top: 0; right: 0; bottom: 0; left: 0; border-radius: calc(var(--w) * .019); overflow: hidden; background: #f4f6fb; }
 .sc-scr img { position: absolute; top: 0; left: 0; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
 .sc-scr img.on { opacity: 1; }
 /* Body = rounded slices stacked through the depth: a SOLID rounded thickness, no edge-on flash. */
 .sc-body {
   position: absolute; top: 0; right: 0; bottom: 0; left: 0; border-radius: var(--r);
-  -webkit-transform: translateZ(calc((var(--i) - 7.5) * .75px)); transform: translateZ(calc((var(--i) - 7.5) * .75px));
+  -webkit-transform: translateZ(calc((var(--i) - 15.5) * var(--t) / 14.5)); transform: translateZ(calc((var(--i) - 15.5) * var(--t) / 14.5));
   background: linear-gradient(110deg, #e0ded8, #aaa7a0 55%, #8f8c85);
 }
 .sc-texts { position: relative; margin-top: -100vh; margin-top: -100dvh; z-index: 1; }
