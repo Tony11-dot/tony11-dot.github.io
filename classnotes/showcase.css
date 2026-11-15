@@ -105,6 +105,7 @@
     justify-content: flex-end; align-items: center; text-align: center;
     padding: 0 24px max(7vh, 40px);
   }
+  .sc-copy:not(.is-active) { opacity: 0; }   /* a caption on its way out never crosses the iPad */
   .sc-copy > * { max-width: 30ch; }
   .sc-copy h3 { font-size: clamp(24px, 6.6vw, 30px); max-width: 16ch; }
   .sc-copy p { font-size: 15.5px; margin-top: 10px; }

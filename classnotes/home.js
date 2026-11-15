@@ -116,7 +116,9 @@
   function loop(ts) {
     if (!visible) { running = false; return; }
     cur3.rx += (target.rx - cur3.rx) * 0.09; cur3.ry += (target.ry - cur3.ry) * 0.09;
-    var ry = cur3.ry + scrollP * 24, rx = cur3.rx - scrollP * 8;
+    // The iPad turns gently by itself, so it is seen in 3D where there is no pointer (phones, iPads).
+    var sway = (ts || 0) / 1000;
+    var ry = cur3.ry + scrollP * 24 + Math.sin(sway * 0.7) * 9, rx = cur3.rx - scrollP * 8 + Math.sin(sway * 0.5 + 1) * 3.5;
     tablet.style.setProperty('--rx', rx.toFixed(2) + 'deg');
     tablet.style.setProperty('--ry', ry.toFixed(2) + 'deg');
     tablet.style.setProperty('--rz', (scrollP * -3).toFixed(2) + 'deg');

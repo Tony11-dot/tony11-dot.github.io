@@ -75,6 +75,13 @@
   ScrollTrigger.refresh();
   applyProgress(st.progress);
   window.addEventListener('load', function () { ScrollTrigger.refresh(); applyProgress(st.progress); });
+  if (new URLSearchParams(location.search).get('scplay') !== null) {   // test hook: REAL scrolling through the section
+    window.addEventListener('load', function () {
+      var top = wrap.getBoundingClientRect().top + window.pageYOffset, len = wrap.offsetHeight - window.innerHeight, t0 = performance.now();
+      document.documentElement.style.scrollBehavior = 'auto';
+      (function step(now) { var k = Math.min(1, (now - t0) / 20000); window.scrollTo(0, top + k * len); if (k < 1) requestAnimationFrame(step); })(t0);
+    });
+  }
   var rt;
   window.addEventListener('resize', function () {
     clearTimeout(rt);
